@@ -1,0 +1,31 @@
+<ion-content class="ion-padding" style="--background: white; padding: 24px;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <ion-title>Back</ion-title>
+  </ion-toolbar>
+  <div class=" mb-32 mt-32">
+    <span class="fw-bold"> Bước 1:</span> Mở ứng dụng Internet Banking và đăng nhập
+  </div>
+  <div class=" mb-32">
+    <span class="fw-bold"> Bước 2:</span> Chọn <b class="text-nets-blue">"Chuyển tiền"</b>
+  </div>
+  <div class=" mb-32">
+    <span class="fw-bold"> Bước 3:</span> Nhập số tài khoản nhận: <br>
+    <b>TPBANK - Chi nhánh Thủ Đức</b> 
+    <br>
+    <b>0242 5357 301 - NGUYEN MANH TUNG</b> 
+  </div>
+  <div class=" mb-32">
+    <span class="fw-bold mb-8"> Bước 5:</span> Nhập nội dung chuyển tiền: <br>
+    <b class="title-3">Block {{block}} - căn {{apt}} thanh toán phí tháng {{moment(data.date).format('MM-yyyy')}}</b>
+  </div>
+  <div class=" mb-32">
+    <span class="fw-bold mb-8"> Bước 6:</span> Xác nhận chuyển tiền
+  </div>
+  <div class=" mb-32">
+    <span class="fw-bold mb-8"> Bước 7:</span> Quay lại ứng dụng và chọn <span class="text-nets-blue">"Xác nhận đã thanh toán"</span>
+  </div>
+  <button class="vcc-btn-fill w-100 blue" (click)="updateBill()">Xác nhận đã thanh toán</button>
+</ion-content>

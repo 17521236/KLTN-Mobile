@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="p-24 bg-white">
+    <ion-toolbar class="mb-24">
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="title-1 text-center">Danh sách chủ sở hữu xe</div>
+  </div>
+ 
+
+  <div class="pr-24 pl-8">
+    <ng-container *ngIf="(result$|async) as result ; else loading">
+      <ion-list>
+        <ion-item class="p-0" *ngFor="let i of result" (click)="viewDetail(i)" >
+          <ion-avatar class="avatar" slot="start">
+            <!-- <img src="../../../../assets/buildings.svg"> -->
+            <!-- <i class='bx font-32 ' [class]="getIcon(i)"></i> -->
+            <i class=' bx bxs-car mb-8' style="font-size: 32px;"></i>
+          </ion-avatar>
+          <ion-label class="p-24 px-0 m-0">
+            <div class="medium-body-text fw-bold color-nets-blue mb-8">{{i.residentName}}</div>
+            <div class="medium-body-text fw-bold color-nets-blue mb-8">số lượng xe: {{i.total}}</div>
+            <!-- <div class="body-text text-overflow">Đơn giá: {{i.cost|vnd}} {{' / ' + i.unit}}</div> -->
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <nz-empty class="mt-48" *ngIf="result.length == 0" [nzNotFoundContent]="'No data'"
+        nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
+      </nz-empty>
+      <!-- <div class="text-center mt-32">
+        <app-paginator [total]="result.total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
+        </app-paginator>
+      </div> -->
+    </ng-container>
+    
+  </div>
+</ion-content>
+<ng-template #loading>
+  loading...
+</ng-template>

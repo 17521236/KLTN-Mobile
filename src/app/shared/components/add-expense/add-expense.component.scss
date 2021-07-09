@@ -1,0 +1,20 @@
+ion-header{
+   
+    ion-toolbar{
+      
+    }
+}
+
+ion-content{
+    --background:#F8F8F8;
+    ion-card-content {
+        padding:13px 0;
+    }
+    .item-has-focus{
+
+        .has-focus{
+            border: none;
+        }
+    }
+
+}

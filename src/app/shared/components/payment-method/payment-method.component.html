@@ -1,0 +1,29 @@
+<ion-content class="ion-padding" style="--background: white; padding: 24px;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <ion-title>Back</ion-title>
+  </ion-toolbar>
+  <div class="title-2 mb-32 mt-32">
+    Chọn hình thức thanh toán:
+  </div>
+  <div class="payment d-flex ai-center p-24 mb-24" (click)="presentModal()">
+    <ion-icon name="logo-paypal" style="font-size: 50px; color: #004694;"></ion-icon>
+    <div class="ml-24 title-2">
+      PayPal
+    </div>
+  </div>
+  <div class="payment d-flex ai-center p-24 mb-24" (click)="presentModal1()">
+    <ion-img src="https://img.mservice.io/momo-payment/icon/images/logo512.png" style="max-width: 50px"></ion-img>
+    <div class="ml-24 title-2">
+      Momo
+    </div>
+  </div>
+  <div class="payment d-flex ai-center p-24 mb-24" (click)="presentModal2()">
+    <ion-icon name="card" style="font-size: 50px;"></ion-icon>
+    <div class="ml-24 title-2">
+      Internet Banking
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="p-24 bg-white">
+    <ion-toolbar class="mb-24">
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+      </ion-buttons>
+      <ion-title class="fw-bold">Danh sách Chi Phí</ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div class="pr-24 pl-8">
+
+    <ng-container *ngIf="(result$|async) as result; else loading" >
+      <ng-container  *ngIf="(dashboard$|async) as dashboard" >
+        <ion-list>
+          <ion-item class="p-0" *ngFor="let i of result"  (click)="ViewDetail(dashboard)">
+            <ion-avatar class="avatar" slot="start">
+              <ion-icon name="cash-outline"class="cash-avatar" ></ion-icon>
+            </ion-avatar>
+            <ion-label class="p-24 px-0 m-0">
+              <div class="medium-body-text fw-bold color-nets-blue mb-8">{{i.date | date}}</div>
+              <div class="body-text text-overflow">Tổng tiền: {{i.amount}}</div>
+              <div class="body-text text-overflow">Đã thanh toán: {{i.paidAmount}}</div>
+              <div class="body-text text-overflow">Nợ: {{i.lastBalance}}</div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <nz-empty class="mt-48" *ngIf="result.total == 0" [nzNotFoundContent]="'No data'"
+          nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
+        </nz-empty>
+        <div class="text-center mt-32">
+          <app-paginator [total]="result.total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
+          </app-paginator>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </div>
+</ion-content>

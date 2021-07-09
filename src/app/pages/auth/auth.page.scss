@@ -1,0 +1,28 @@
+ion-content {
+    .login {
+        padding: 1rem;
+
+        .segment {
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            opacity: 0.5;
+        }
+        .active {
+            border-bottom: 5px #000 solid;
+        opacity: 1;
+        }
+        .submit {
+            margin-top: 2rem;
+            justify-content: center;
+            display: flex;
+
+            .login__btn {
+                height: 3rem;
+                text-transform: capitalize;
+                font-size: 1rem;
+                width: 80%;
+            }
+        }
+    }
+}

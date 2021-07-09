@@ -1,0 +1,28 @@
+@import 'variable.scss';
+.item-inner {
+  border: none !important;
+}
+.font-weight-bold {
+  font-weight: bold !important;
+}
+
+.font-smaller {
+  font-size: smaller;
+}
+.s{
+  color: white;
+}
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--color);
+}
+
+.content{
+  border-radius: 16px;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+

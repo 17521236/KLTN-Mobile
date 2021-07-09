@@ -1,0 +1,63 @@
+<div class="p-24 bg-white">
+  <ion-toolbar class="mb-24">
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="fw-bold">Chi tiết</ion-title>
+  </ion-toolbar>
+  <!-- <div class="title-1 mb-32 mt-16 text-center">Danh sách Block</div> -->
+  <div *ngIf="detail$|async as detail; else loading" class="detail-content">
+
+    <div class="mb-32 text-center">
+      <i class='bx font-48 ' [class]="getIcon(detail)"></i>
+      <img class="icon" *ngIf="detail.name == 'Gửi xe (xe đạp)'" src="assets/bikecicle.svg" />
+      <img class="icon" *ngIf="detail.name == 'Gửi xe (xe máy)'" src="assets/bike.svg" />
+    </div>
+
+    <div class="row mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Tên loại phí:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.name}}</div>
+      </div>
+    </div>
+    <div class="row  mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Giá tiền:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{detail.cost | vnd}}</div>
+      </div>
+    </div>
+    <div class="row  mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Đơn vị tính:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{detail.unit}}</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Mô tả:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.desc}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  loading...
+</ng-template>

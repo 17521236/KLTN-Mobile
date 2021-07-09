@@ -1,0 +1,103 @@
+<div class="p-24" *ngIf="(dashboard$|async) as dashboard">
+  <div class="mb-32 d-flex jc-space-between ai-center">
+    <ion-img src="../../../assets/logo1-removebg-preview.png" style=" max-width: 52px;"></ion-img>
+    <!-- <i class='bx bxs-user' style="font-size: 32px; color: #0046ad"></i> -->
+    <i class='bx bx-log-out-circle' style="font-size: 32px; color: #0046ad" (click)="logout()"></i>
+  </div>
+  <div class="mb-32">
+    <div class="title-2 mb-8">
+      Xin chào! {{dashboard?.name}}
+    </div>
+    <div>
+      Block: {{dashboard?.block}} - Căn hộ: {{dashboard?.apt}}
+    </div>
+  </div>
+  <!-- <div class="title-2 mb-16">
+    Chi phí tháng 6-2021
+  </div> -->
+  <ng-container *ngIf="!dashboard.bill.status; else hasBillTpl">
+  </ng-container>
+  <ng-template #hasBillTpl>
+    <div class="content mb-32" (click)="presentModal(dashboard)">
+      <div class="p-32">
+        <div class="d-flex ai-center jc-space-between">
+          <div>
+            <div class="medium-body-text mb-24">
+              <i class='bx bx-clipboard pr-8' style="font-size: 20px;">
+              </i>{{dashboard.bill.status == 'APPROVE' ? 'Còn nợ ': 'Chi phí '}} tháng
+              {{moment(dashboard.bill?.date).format('MM-yyyy')}}
+            </div>
+            <div class="title-1 fw-bold ml-16 text-danger"> {{dashboard.bill.lastBalance|vnd}}</div>
+          </div>
+          <i class='bx bx-chevron-right' style="font-size: 32px;"></i>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <div class="mb-32">
+    <div class="title-2 mb-16">
+      Tiện ích
+    </div>
+    <div class="row mb-16">
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text" (click)="showBlockList()">
+          <i class='bx bxs-building mb-8' style="font-size: 32px;"></i>
+          <div>
+            Block
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text" (click)="showAptList()">
+          <i class='bx bxs-home-circle mb-8' style="font-size: 32px;"></i>
+          <div>
+            Căn hộ
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text" (click)="showVehicleList()">
+          <i class='bx bxs-car mb-8' style="font-size: 32px;"></i>
+          <div>
+            Xe
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text" (click)="showServiceList()">
+          <i class='bx bxs-purchase-tag-alt mb-8' style="font-size: 32px;"></i>
+          <div>
+            Dịch vụ   <span class="s">ssss</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text"  (click)="showEmployeeList()"> 
+          <i class='bx bxs-user-voice mb-8' style="font-size: 32px;"></i>
+          <div>
+            Ban quản lý
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="content p-16 text-center small-body-text" (click)="showBIll()">
+          <i class=' bx bxs-bookmark-alt mb-8' style="font-size: 32px;"></i>
+          <div>
+            Thanh toán
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-4">
+        <div class="content p-16 text-center small-body-text">
+          <i class='bx bxs-home-circle mb-8' style="font-size: 32px;"></i>
+          <div>
+            Thanh toán
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

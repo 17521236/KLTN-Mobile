@@ -1,0 +1,12 @@
+<ion-content class="ion-padding" style="--background: white; padding: 24px;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <ion-title>Back</ion-title>
+  </ion-toolbar>
+  <div class=" mb-32 mt-32">
+    <span class="fw-bold"> Tỷ lệ quy đổi:</span> 1 USD = {{usdTrans|vnd}}
+  </div>
+  <div id="paypalbtn"></div>
+</ion-content>

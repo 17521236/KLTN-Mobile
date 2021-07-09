@@ -1,0 +1,1 @@
+Expense Manager with Ionic + Angular 

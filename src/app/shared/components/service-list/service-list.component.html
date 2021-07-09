@@ -1,0 +1,37 @@
+<ion-content>
+  <div class="p-24 bg-white">
+    <ion-toolbar class="mb-24">
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+      </ion-buttons>
+      <!-- <ion-title class="fw-bold">Danh sách Dịch vụ</ion-title> -->
+    </ion-toolbar>
+    <div class="title-1 text-center">Danh sách Dịch vụ</div>
+  </div>
+  <div class="pr-24 pl-8">
+    <ng-container *ngIf="(result$|async) as result">
+      <ion-list>
+        <ion-item class="p-0" *ngFor="let i of result" (click)="viewDetail(i)">
+          <ion-avatar class="avatar" slot="start">
+            <!-- <img src="../../../../assets/buildings.svg"> -->
+            <i class='bx font-32 ' [class]="getIcon(i)"></i>
+            <img class="icon" *ngIf="i.name == 'Gửi xe (xe đạp)'" src="assets/bikecicle.svg"/>
+            <img class="icon" *ngIf="i.name == 'Gửi xe (xe máy)'" src="assets/bike.svg"/>
+          </ion-avatar>
+          <ion-label class="p-24 px-0 m-0">
+            <div class="medium-body-text fw-bold color-nets-blue mb-8">{{i.name}}</div>
+            <div class="body-text text-overflow">Đơn giá: {{i.cost|vnd}} {{' / ' + i.unit}}</div>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <nz-empty class="mt-48" *ngIf="result.length == 0" [nzNotFoundContent]="'No data'"
+        nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
+      </nz-empty>
+      <!-- <div class="text-center mt-32">
+        <app-paginator [total]="result.total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
+        </app-paginator>
+      </div> -->
+    </ng-container>
+    
+  </div>
+</ion-content>

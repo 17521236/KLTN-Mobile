@@ -1,0 +1,79 @@
+<div class="p-24 bg-white">
+  <ion-toolbar class="mb-24">
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="fw-bold">Chi tiết</ion-title>
+  </ion-toolbar>
+  <!-- <div class="title-1 mb-32 mt-16 text-center">Danh sách Block</div> -->
+  <div *ngIf="detail$|async as detail; else loading" class="detail-content">
+    <div class="row mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Block:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.blockId | block: blocks}}</div>
+      </div>
+    </div>
+    <div class="row mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Tên căn hộ:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.name}}</div>
+      </div>
+    </div>
+    <div class="row mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Diện tích:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.area}} m²</div>
+      </div>
+    </div>
+    <div class="row  mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Số dân:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{detail.totalResident}} người</div>
+      </div>
+    </div>
+    <div class="row  mb-32">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Số xe:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{detail.totalVehicle}} xe</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        <div class="medium-body-text fw-bold">
+          Mô tả:
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="medium-body-text"> {{data.description || '---'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+  area: "100"
+blockId: "605717fe98c7d50d2cb18046"
+type: "1"
+ -->
+<ng-template #loading>
+  loading...
+</ng-template>

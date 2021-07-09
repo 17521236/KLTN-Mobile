@@ -1,0 +1,78 @@
+@import "variable.scss";
+.app-input {
+    height: 50px;
+    font-size: 16px;
+    border-radius: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid $color-bluish-grey-10;
+    box-shadow: none;
+}
+.app-input.small {
+    height: 33px;
+    font-size: 14px;
+    border-radius: 8px;
+    input {
+        font-size: 14px;
+    }
+}
+.app-input:hover,
+.app-input:focus,
+.app-input-group:hover,
+.app-input-group:focus {
+    border-color: $color-dark-grey;
+    box-shadow: none;
+}
+.app-input:disabled,
+.app-input-group:disabled {
+    border-color: $color-light-grey;
+    background-color: $color-light-grey;
+    box-shadow: none;
+}
+.app-input-group {
+    border-radius: 16px;
+    padding: 0 14px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid $color-bluish-grey-10;
+    box-shadow: none;
+    input {
+        background: transparent;
+    }
+}
+
+.ant-input-prefix {
+    margin-right: 16px;
+}
+
+.rise {
+    input {
+        color: $color-black !important;
+    }
+    background: transparent;
+    background-color: $color-light-grey !important;
+    border: none;
+}
+.ip-black {
+    .app-input {
+        color: $color-black;
+    }
+}
+.border-blue {
+    .app-input,
+    .app-input:hover {
+        border: solid 1px $color-nets-blue;
+    }
+}
+.input-label {
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    color: $color-dark-grey;
+}
