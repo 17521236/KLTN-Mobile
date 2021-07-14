@@ -4,11 +4,10 @@
     <ion-buttons slot="start">
       <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
     </ion-buttons>
-    <ion-title>Back</ion-title>
   </ion-toolbar>
   <ng-container *ngIf="(details$|async) as details; else loading">
-    <div class="title-2 mt-24 mb-48 text-deep-blue">
-      {{'Thông tin thu phí tháng ' + moment(details?.bill.date).format('MM-yyyy') | uppercase }}
+    <div class="title-2 mt-24 mb-48 text-deep-blue text-center">
+      THÔNG TIN THU PHÍ<br>{{ ' tháng '+moment(details?.bill.date).format('MM-yyyy') | uppercase }}
     </div>
     <div class="mb-48 ml-16">
       <div class="mb-16">

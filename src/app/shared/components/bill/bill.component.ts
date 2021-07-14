@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
@@ -14,45 +14,61 @@ import { AddExpenseComponent } from '../add-expense/add-expense.component';
   templateUrl: './bill.component.html',
   styleUrls: ['./bill.component.scss'],
 })
-export class BillComponent implements OnInit {
-  tableHelper: TableHelper = new TableHelper();
-
+export class BillComponent implements OnInit, OnDestroy {
   sub$ = new Subject();
-  ngOnDestroy(): void {
-    this.sub$.next();
-  }
-  
-  dashboard$ = this.authService.residentId$.pipe(switchMap(id => this.dashboardService.getDashboard(id)), takeUntil(this.sub$))
-
+  tableHelper: TableHelper = new TableHelper();
+  pending = false;
+  dashboard$ = this.authService.residentId$.pipe(
+    switchMap(id => this.dashboardService.getDashboard(id)),
+    takeUntil(this.sub$)
+  );
 
   result$: Observable<any> = this.authService.aptId$.pipe(
     switchMap((id: any) => {
       return this.billService.getBillByAptId(id)
     })
-  )
-  constructor( private modalController: ModalController,
-                private fb:FormBuilder,
-                private billService:BillService,
-                private authService:AuthService ,
-                private dashboardService:DashboardService) { }
+  );
+
+  ngOnDestroy(): void {
+    this.sub$.next();
+  }
+
+  constructor(
+    private modalController: ModalController,
+    private billService: BillService,
+    private authService: AuthService,
+    private dashboardService: DashboardService) { }
 
   ngOnInit() {
   }
-  
-  cancel(){
-    this.modalController.dismiss().then().catch()
+
+  cancel() {
+    this.modalController.dismiss().then().catch();
   }
 
-  async ViewDetail(dashboard) {
+  viewDetail(id) {
+    if (!this.pending) {
+      this.pending = true;
+      this.billService.getOneMobile(id).subscribe((data: any) => {
+        this.openDetail(data);
+        this.pending = false;
+      }, _ => this.pending = false);
+    }
+  }
+
+  async openDetail(data) {
     const modal = await this.modalController.create({
       component: AddExpenseComponent,
       componentProps: {
-        data: dashboard.bill,
-        block: dashboard.block,
-        apt: dashboard.apt
+        data: data.bill,
+        block: data.block,
+        apt: data.apt
       }
     });
     return await modal.present();
   }
 
+  getColor(i) {
+    return i.status === 'APPROVE' ? 'rgb(0, 143, 251)' : (i.status === 'NOT_APPROVE' ? 'rgb(254, 176, 25)' : 'rgb(0, 227, 150)');
+  }
 }

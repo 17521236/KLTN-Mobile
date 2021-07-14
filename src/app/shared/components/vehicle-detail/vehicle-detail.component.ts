@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { AuthService } from '../../service/auth.service';
-import { VehicleService } from '../../service/vehicle.service';
 
 @Component({
   selector: 'app-vehicle-detail',
@@ -15,11 +12,12 @@ export class VehicleDetailComponent implements OnInit {
   data$;
   result$: Observable<any>;
   residentId$;
-  constructor(private modalController: ModalController,
-    private vehicleService: VehicleService) { }
+  constructor(
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
-    this.data$= of(this.data)
+    this.data$ = of(this.data);
   }
 
   cancel() {

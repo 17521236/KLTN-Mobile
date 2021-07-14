@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import * as moment from 'moment';
-import { tap } from 'rxjs/operators';
-import { CreateExpense, Transaction } from 'src/app/models/transaction.model';
 import { AuthService } from '../../service/auth.service';
 import { BillService } from '../../service/bill.service';
 import { PaymentMethodComponent } from '../payment-method/payment-method.component';
@@ -13,7 +11,7 @@ import { PaymentMethodComponent } from '../payment-method/payment-method.compone
   styleUrls: ['./add-expense.component.scss'],
 })
 export class AddExpenseComponent implements OnInit {
-
+  moment = moment;
   data;
   block;
   apt;
@@ -30,7 +28,6 @@ export class AddExpenseComponent implements OnInit {
     this.modalController.dismiss().then().catch();
   }
 
-  moment = moment;
   async presentModal() {
     const modal = await this.modalController.create({
       component: PaymentMethodComponent,

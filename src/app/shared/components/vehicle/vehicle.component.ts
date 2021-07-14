@@ -20,9 +20,10 @@ export class VehicleComponent implements OnInit {
     switchMap(id => {
       return this.vehicleService.getListVehicle(id)
     })
- )
+ );
 
-  constructor(private modalController: ModalController,
+  constructor(
+    private modalController: ModalController,
     private vehicleService: VehicleService,
     private authService: AuthService) { }
 

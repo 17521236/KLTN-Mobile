@@ -12,17 +12,20 @@ export class BillService {
  
 
   getBillByAptId(id){
-    return this.http.sendToServer("GET",API.BILL.GET_LIST(id)).pipe(shareReplay());
+    return this.http.sendToServer('GET',API.BILL.GET_LIST(id)).pipe(shareReplay());
   }
 
   getOne(id) {
-    return this.http.sendToServer("GET", API.BILL.GET_ONE(id), null, null).pipe(shareReplay());
+    return this.http.sendToServer('GET', API.BILL.GET_ONE(id), null, null).pipe(shareReplay());
   }
   update(data, id) {
     return this.http.sendToServer('PATCH', API.BILL.UPDATE(id), data, null).pipe(shareReplay());
   }
+
+  getOneMobile(id) {
+    return this.http.sendToServer('GET', API.DASHBOARD.GET_ONE(id), null, null).pipe(shareReplay());
+  }
   // deleteOne(id) {
   //   return this.http.sendToServer('DELETE', API.BILL.DELETE(id)).pipe(shareReplay());
   // }
- 
 }

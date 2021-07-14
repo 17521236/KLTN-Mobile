@@ -7,59 +7,79 @@
   </ion-toolbar>
   <!-- <div class="title-1 mb-32 mt-16 text-center">Danh sách Block</div> -->
   <div *ngIf= " detail$ | async as detail; else loading"  class="detail-content">
-    <div class="row mb-32">
-      <div class="col-5">
+    <div class="mb-32">
+      <!-- <div class="col-5">
         <div class="medium-body-text fw-bold">
           Tên Quản lý:
         </div>
       </div>
       <div class="col-7">
         <div class="medium-body-text"> {{detail.name}}</div>
+      </div> -->
+      <div class="medium-body-text fw-bold mb-8">
+        Tên Quản lý:
       </div>
+      <div class="medium-body-text"> {{detail.name}}</div>
     </div>
 
-    <div class="row mb-32">
-      <div class="col-5">
+    <div class="mb-32">
+      <!-- <div class="col-5">
         <div class="medium-body-text fw-bold">
           Ngày sinh:
         </div>
       </div>
       <div class="col-7">
         <div class="medium-body-text"> {{detail.dateOfBirth | date}}</div>
+      </div> -->
+      <div class="medium-body-text fw-bold mb-8">
+        Ngày sinh:
       </div>
+      <div class="medium-body-text"> {{detail.dateOfBirth | date}}</div>
     </div>
 
-    <div class="row mb-32">
-      <div class="col">
+    <div class="mb-32">
+      <!-- <div class="col">
         <div class="medium-body-text fw-bold">
           Email:
         </div>
       </div>
       <div class="col">
         <div class="medium-body-text"> {{detail.email}}</div>
+      </div> -->
+      <div class="medium-body-text fw-bold mb-8">
+        Email:
       </div>
+      <div class="medium-body-text"> {{detail.email}}</div>
     </div>
 
-    <div class="row mb-32">
-      <div class="col-5">
+    <div class="mb-32">
+      <!-- <div class="col-5">
         <div class="medium-body-text fw-bold">
           Địa chỉ:
         </div>
       </div>
       <div class="col-7">
         <div class="medium-body-text"> {{detail.addr}}</div>
+      </div> -->
+      <div class="medium-body-text fw-bold mb-8">
+        Địa chỉ:
       </div>
+      <div class="medium-body-text"> {{detail.addr}}</div>
     </div>
    
-    <div class="row mb-32">
-      <div class="col-5">
+    <div class="mb-32">
+      <!-- <div class="col-5">
         <div class="medium-body-text fw-bold">
           Số điện thoại:
         </div>
       </div>
       <div class="col-7">
         <div class="medium-body-text"> {{detail.phoneNumber}}</div>
+      </div> -->
+      <div class="medium-body-text fw-bold mb-8">
+        Số điện thoại:
       </div>
+      <div class="medium-body-text"> {{detail.phoneNumber}}</div>
     </div>
   </div>
 </div>

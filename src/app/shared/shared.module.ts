@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { PaginatorComponent } from './components/paginator/paginator.component';
-import { NzEmptyModule } from 'ng-zorro-antd/empty'
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { BlockDetailComponent } from './components/block-detail/block-detail.component';
 import { ApartmentDetailComponent } from './components/apartment-detail/apartment-detail.component';
 import { ApartmentComponent } from './components/apartment/apartment.component';
@@ -84,7 +84,10 @@ import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-deta
     ApartmentComponent,
     ServiceListComponent,
     ServiceDetailComponent,
-    ManagerListComponent
+    ManagerListComponent,
+    VehicleDetailComponent,
+    VehicleComponent,
+    BillComponent
   ]
 })
 export class SharedModule { }

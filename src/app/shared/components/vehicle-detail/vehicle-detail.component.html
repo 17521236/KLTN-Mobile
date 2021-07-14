@@ -10,28 +10,42 @@
   </div>
   <div class="pr-24 pl-8">
     <!-- <ng-container *ngIf="(result$|async) as result"> -->
-      <ion-list>
-        <ion-item class="p-0" *ngFor="let i of data.v" >
-          <ion-avatar class="avatar" slot="start">
-            <!-- <img src="../../../../assets/buildings.svg"> -->
-            <i class=' bx bxs-car mb-8'  *ngIf="i?.type =='CAR'" style="font-size: 32px;"></i>
-            <img class="icon" *ngIf="i?.type =='BYCIRCLE'" src="assets/bikecicle.svg"/>
-            <img class="icon" *ngIf="i?.type == 'MOTORBIKE'" src="assets/bike.svg"/>
-          </ion-avatar>
-          <ion-label class="p-24 px-0 m-0">
-            <div class="medium-body-text fw-bold color-nets-blue mb-8">Biển số: {{i.licensePlate}}</div>
-            <div class="medium-body-text fw-bold color-nets-blue mb-8">Giá trị: {{i.price}}</div>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-      <nz-empty class="mt-48" *ngIf="data.v.length == 0" [nzNotFoundContent]="'No data'"
-        nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
-      </nz-empty>
-      <!-- <div class="text-center mt-32">
+    <ion-list>
+      <ion-item class="p-0" *ngFor="let i of data.v">
+        <ion-avatar class="avatar" slot="start">
+          <!-- <img src="../../../../assets/buildings.svg"> -->
+          <i class=' bx bxs-car mb-8' *ngIf="i?.type =='CAR'" style="font-size: 32px;"></i>
+          <img class="icon" *ngIf="i?.type =='BYCIRCLE'" src="assets/bikecicle.svg" />
+          <img class="icon" *ngIf="i?.type == 'MOTORBIKE'" src="assets/bike.svg" />
+        </ion-avatar>
+        <ion-label class="p-24 px-0 m-0">
+          <div class="medium-body-text color-nets-blue mb-16 row">
+            <div class="col-4">
+              Biển số:
+            </div>
+            <div class="col-8">
+              <span class="fw-bold">{{i.licensePlate}}</span>
+            </div>
+          </div>
+          <div class="medium-body-text color-nets-blue row">
+            <div class="col-4">
+              Giá:
+            </div>
+            <div class="col-8">
+              <span class="fw-bold">{{i.price | vnd}}</span>
+            </div>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <nz-empty class="mt-48" *ngIf="data.v.length == 0" [nzNotFoundContent]="'No data'"
+      nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
+    </nz-empty>
+    <!-- <div class="text-center mt-32">
         <app-paginator [total]="result.total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
         </app-paginator>
       </div> -->
     <!-- </ng-container> -->
-    
+
   </div>
 </ion-content>

@@ -58,7 +58,8 @@ export const API = {
         COST: "/api/bill/cost"
     },
     DASHBOARD: {
-        GET_ALL: (id) => `/api/dashboard/mobile/${id}`
+        GET_ALL: (id) => `/api/dashboard/mobile/${id}`,
+        GET_ONE: (id) => `/api/dashboard/mobile/bill/${id}`
     },
     EMPLOYEE: {
         GET_ALL: "/api/employee",
