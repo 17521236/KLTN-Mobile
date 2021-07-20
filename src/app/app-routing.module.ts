@@ -8,8 +8,9 @@ const routes: Routes = [
     path: 'redirect', component: RedirectComponent
   },
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'dashboard',
+    // loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
     , canActivate: [AuthGuard]
   },
   {
